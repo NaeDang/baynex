@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: ubuntu
+    plain_text_passwd: secret
+    groups: sudo
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    lock_passwd: false

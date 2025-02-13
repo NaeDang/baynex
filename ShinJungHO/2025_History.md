@@ -1,3 +1,13 @@
+# 할일
+
+---
+
+1.  OpenStack 설치 - 진행 중 All-in-one, Multinode(추후진행)
+1.  k8s 구성 -
+1.  Tanzu 구성 -
+
+---
+
 ## 2025-01-06
 
 ---
@@ -125,21 +135,26 @@
 
 1.고려대 HPC 구축
 
-1. https://blog.zabbix.com/monitoring-vmware-vsphere-with-zabbix/29193/
-1. F&U신용정보 Aria for Logs 접속 오류 확인 - 서비스 재시작, 로그 분석중
+1. Proxmox 클러스터 추가 및 ceph 구성
 
 ## 2025-02-04
 
 ---
 
-1. 유신 vCenter 자원 사용률 API 호출 정보 찾아서 전달(01월24일 까지)
-1. https://blog.zabbix.com/monitoring-vmware-vsphere-with-zabbix/29193/
-1. F&U신용정보 Aria for Logs 접속 오류 확인 - 서비스 재시작, 로그 분석중
+1. 몬디리안 AI 사전미팅
+1. 네트워크 스위치 서버 라벨링 작업
 
 ## 2025-02-05
 
 ---
 
-1. 유신 vCenter 자원 사용률 API 호출 정보 찾아서 전달(01월24일 까지)
-1. https://blog.zabbix.com/monitoring-vmware-vsphere-with-zabbix/29193/
+F&U신용정보 VPN 패스워드 변경(BayNex9977!)
+
 1. F&U신용정보 Aria for Logs 접속 오류 확인 - 서비스 재시작, 로그 분석중
+1. HPE VME Cloud image 관련 설정
+
+## 2025-02-06
+
+---
+
+1.CEC Proxmox Backup Server 설치를 위한 구성 설정

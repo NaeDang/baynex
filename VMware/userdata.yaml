@@ -1,0 +1,24 @@
+#cloud-config
+users:
+  - default
+  - name: ubuntu
+    ssh-authorized-keys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCmAv3AO/1QyclnhdnO+p34qSzV1loqvY+KccHkbdn64Rk8IqhzKY6OrnoxW3VdRSgP3LU05A0Vcz1ZU1QCO6QtdUm/JvxP19ALtbQLWm+BJxNfU80B9ZYFOS+DIi50hTnYDkfRjiMBdFim6pCAGgzJ6UjXKpP+PYq4NUimzm4AQ6sOljZRiccAWiAKo3nkWUDKERt0R6ZQb+4W9iexREhQv7jzeRmUae+cU+9KLOpBA/1xDgCkN95PjxnFvFnI4fvDDzEcMRVSu8Nj1wKPTQTkX5PXkPFp+EeI3a9h87zXQ5v/8rshMpBPtVjectPm+I3YjRoMNQ0LFGuO9ziHTnjZ8OatfdIVPMb/LwiliJV/I+GWy8nRU8CEU7/OaQ71gkJ2nUmtTWjtNrH6H0pCodwCYOThSz7imS6tq4qKHaxfXvYBHolx6dPX8GqLEr8VnWTWAgOADkC6s3zBqddMgqn8IF98DkU9k4E9d1a8fZ9rjQP+tvSTsmanDP6ZtbcZwkc= shin@DESKTOP-E281IUQ"
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: sudo
+    shell: /bin/bash
+
+network:
+  version: 2
+  ethernets:
+    ens192:
+      dhcp4: false
+      addresses:
+        - 192.168.0.141/24
+      gateway4: 192.168.0.1
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 8.8.4.4
+#  guestinfo.userdata.encoding | base64
+#  guestinfo.userdata
