@@ -1,0 +1,392 @@
+affinity: {}
+collabora:
+  autoscaling:
+    enabled: false
+  collabora:
+    aliasgroups: []
+    existingSecret:
+      enabled: false
+      passwordKey: password
+      secretName: ''
+      usernameKey: username
+    extra_params: '--o:ssl.enable=false'
+    password: examplepass
+    server_name: null
+    username: admin
+  enabled: false
+  ingress:
+    annotations: {}
+    className: ''
+    enabled: false
+    hosts:
+      - host: chart-example.local
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls: []
+  resources: {}
+cronjob:
+  enabled: false
+  lifecycle: {}
+  resources: {}
+  securityContext: {}
+deploymentAnnotations: {}
+deploymentLabels: {}
+dnsConfig: {}
+externalDatabase:
+  database: nextcloud
+  enabled: false
+  existingSecret:
+    enabled: false
+    passwordKey: db-password
+    usernameKey: db-username
+  host: ''
+  password: ''
+  type: mysql
+  user: nextcloud
+fullnameOverride: ''
+hpa:
+  cputhreshold: 60
+  enabled: false
+  maxPods: 10
+  minPods: 1
+image:
+  flavor: apache
+  pullPolicy: IfNotPresent
+  repository: nextcloud
+  tag: null
+imaginary:
+  enabled: false
+  image:
+    pullPolicy: IfNotPresent
+    pullSecrets: []
+    registry: docker.io
+    repository: h2non/imaginary
+    tag: 1.2.4
+  livenessProbe:
+    enabled: true
+    failureThreshold: 3
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  nodeSelector: {}
+  podAnnotations: {}
+  podLabels: {}
+  podSecurityContext: {}
+  readinessProbe:
+    enabled: true
+    failureThreshold: 3
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  replicaCount: 1
+  resources: {}
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+  service:
+    annotations: {}
+    labels: {}
+    loadBalancerIP: null
+    nodePort: null
+    type: ClusterIP
+  tolerations: []
+ingress:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  enabled: true
+  labels: {}
+  path: /
+  pathType: Prefix
+  tls:
+    - hosts:
+        - nextcloud.baynex.kr
+      secretName: nextcloud.baynex.kr-tls
+internalDatabase:
+  enabled: true
+  name: nextcloud
+lifecycle: {}
+livenessProbe:
+  enabled: true
+  failureThreshold: 3
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5
+mariadb:
+  architecture: standalone
+  auth:
+    database: nextcloud
+    existingSecret: ''
+    password: changeme
+    username: nextcloud
+  enabled: true
+  global:
+    defaultStorageClass: ''
+  primary:
+    persistence:
+      accessMode: ReadWriteOnce
+      enabled: true
+      existingClaim: ''
+      size: 8Gi
+      storageClass: ceph-block
+metrics:
+  affinity: {}
+  enabled: false
+  https: false
+  image:
+    pullPolicy: IfNotPresent
+    repository: xperimental/nextcloud-exporter
+    tag: 0.6.2
+  info:
+    apps: false
+  nodeSelector: {}
+  podAnnotations: {}
+  podLabels: {}
+  podSecurityContext: {}
+  replicaCount: 1
+  resources: {}
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+  server: ''
+  service:
+    annotations:
+      prometheus.io/port: '9205'
+      prometheus.io/scrape: 'true'
+    labels: {}
+    loadBalancerIP: null
+    type: ClusterIP
+  serviceMonitor:
+    enabled: false
+    interval: 30s
+    jobLabel: ''
+    labels: {}
+    namespace: ''
+    namespaceSelector: null
+    scrapeTimeout: ''
+  timeout: 5s
+  tlsSkipVerify: false
+  token: ''
+  tolerations: []
+nameOverride: ''
+nextcloud:
+  configs:
+    login.config.php: |-
+      <?php
+      $CONFIG = array (
+        'social_login_auto_redirect' => false
+      );
+    proxy.config.php: |-
+      <?php
+      $CONFIG = array (
+        'trusted_proxies' => array(
+          0 => '127.0.0.1',
+          1 => '10.0.0.0/8',
+        ),
+        'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
+        'overwriteprotocol' => 'https',
+        'overwrite.cli.url' => 'https://nextcloud.baynex.kr',
+      );
+  containerPort: 80
+  datadir: /var/www/html/data
+  defaultConfigs:
+    .htaccess: true
+    apache-pretty-urls.config.php: true
+    apcu.config.php: true
+    apps.config.php: true
+    autoconfig.php: true
+    imaginary.config.php: false
+    redis.config.php: true
+    reverse-proxy.config.php: true
+    s3.config.php: true
+    smtp.config.php: true
+    swift.config.php: true
+    upgrade-disable-web.config.php: true
+  existingSecret:
+    enabled: false
+    passwordKey: nextcloud-password
+    smtpHostKey: smtp-host
+    smtpPasswordKey: smtp-password
+    smtpUsernameKey: smtp-username
+    tokenKey: ''
+    usernameKey: nextcloud-username
+  extraEnv: null
+  extraInitContainers: []
+  extraSidecarContainers: []
+  extraVolumeMounts: null
+  extraVolumes: null
+  hooks:
+    before-starting: null
+    post-installation: null
+    post-upgrade: null
+    pre-installation: null
+    pre-upgrade: null
+  host: nextcloud.baynex.kr
+  mail:
+    domain: domain.com
+    enabled: false
+    fromAddress: user
+    smtp:
+      authtype: LOGIN
+      host: domain.com
+      name: user
+      password: pass
+      port: 465
+      secure: ssl
+  mariaDbInitContainer:
+    resources: {}
+    securityContext: {}
+  objectStore:
+    s3:
+      accessKey: ''
+      autoCreate: false
+      bucket: ''
+      enabled: false
+      existingSecret: ''
+      host: ''
+      legacyAuth: false
+      port: '443'
+      prefix: ''
+      region: eu-west-1
+      secretKey: ''
+      secretKeys:
+        accessKey: ''
+        bucket: ''
+        host: ''
+        secretKey: ''
+        sse_c_key: ''
+      sse_c_key: ''
+      ssl: true
+      storageClass: STANDARD
+      usePathStyle: false
+    swift:
+      autoCreate: false
+      container: ''
+      enabled: false
+      project:
+        domain: Default
+        name: ''
+      region: ''
+      service: swift
+      url: ''
+      user:
+        domain: Default
+        name: ''
+        password: ''
+  password: changeme
+  persistence:
+    subPath: null
+  phpConfigs: {}
+  podSecurityContext: {}
+  postgreSqlInitContainer:
+    resources: {}
+    securityContext: {}
+  securityContext: {}
+  strategy:
+    type: Recreate
+  trustedDomains: []
+  update: 0
+  username: admin
+nginx:
+  config:
+    custom: null
+    default: true
+    headers:
+      Referrer-Policy: no-referrer
+      Strict-Transport-Security: ''
+      X-Content-Type-Options: nosniff
+      X-Download-Options: noopen
+      X-Frame-Options: SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies: none
+      X-Robots-Tag: noindex, nofollow
+      X-XSS-Protection: 1; mode=block
+  containerPort: 80
+  enabled: false
+  extraEnv: []
+  image:
+    pullPolicy: IfNotPresent
+    repository: nginx
+    tag: alpine
+  ipFamilies:
+    - IPv4
+  resources: {}
+  securityContext: {}
+nodeSelector: {}
+persistence:
+  accessMode: ReadWriteOnce
+  annotations: {}
+  enabled: true
+  nextcloudData:
+    accessMode: ReadWriteOnce
+    annotations: {}
+    enabled: false
+    size: 8Gi
+    subPath: null
+  size: 8Gi
+  storageClass: ceph-block
+phpClientHttpsFix:
+  enabled: false
+  protocol: https
+podAnnotations: {}
+postgresql:
+  enabled: false
+  global:
+    postgresql:
+      auth:
+        database: nextcloud
+        existingSecret: ''
+        password: changeme
+        secretKeys:
+          adminPasswordKey: ''
+          replicationPasswordKey: ''
+          userPasswordKey: ''
+        username: nextcloud
+  primary:
+    persistence:
+      enabled: false
+rbac:
+  enabled: false
+  serviceaccount:
+    annotations: {}
+    create: true
+    name: nextcloud-serviceaccount
+readinessProbe:
+  enabled: true
+  failureThreshold: 3
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5
+redis:
+  auth:
+    enabled: true
+    existingSecret: ''
+    existingSecretPasswordKey: ''
+    password: changeme
+  enabled: false
+  global:
+    storageClass: ''
+  master:
+    persistence:
+      enabled: true
+  replica:
+    persistence:
+      enabled: true
+replicaCount: 1
+resources: {}
+securityContext: {}
+service:
+  annotations: {}
+  loadBalancerIP: ''
+  nodePort: 30000
+  port: 8080
+  type: NodePort
+startupProbe:
+  enabled: false
+  failureThreshold: 30
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5
+tolerations: []
