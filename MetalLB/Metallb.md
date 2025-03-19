@@ -37,16 +37,18 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-  - 192.168.100.240-192.168.100.250
-````
-
+  - 192.168.0.134-192.168.0.136
 ---
-
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
 name: my-l2-advert
 namespace: metallb-system
+spec:
+  # 사용할 ipAddressPools을 추가해주는 데 위에 정의한 ipAddressPools을 사용하도록 한다.
+  ipAddressPools:
+    - my-ip-pool
+````
 
 ````
 🚀 ConfigMap 적용
