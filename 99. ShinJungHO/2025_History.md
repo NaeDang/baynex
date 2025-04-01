@@ -395,4 +395,4 @@ F&U신용정보 VPN 패스워드 변경(BayNex9977!)
 ---
 
 1. AI:DRIVE 사이징 + 구성도 전달 - > 3 Node 구성
-2. Rancher 설치
+2. Git Study
