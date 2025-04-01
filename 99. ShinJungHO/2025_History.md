@@ -2,9 +2,9 @@
 
 ---
 
-1.  OpenStack 설치 - 진행 중 All-in-one, Multinode(추후진행)
-1.  k8s 구성 -
-1.  Tanzu 구성 -
+1. OpenStack 설치 - 진행 중 All-in-one, Multinode(추후진행)
+2. k8s 구성 -
+3. Tanzu 구성 -
 
 ---
 
@@ -12,18 +12,18 @@
 
 ---
 
-1.  SALES, Pre-Sales Proven Certi 교육 시청
-2.  1월 20일 F&U 사용자 교육자료 작성
-3.  한화시스템 HPCaaS, GPUaaS 사업 회의 참석
+1. SALES, Pre-Sales Proven Certi 교육 시청
+2. 1월 20일 F&U 사용자 교육자료 작성
+3. 한화시스템 HPCaaS, GPUaaS 사업 회의 참석
 
 ## 2025-01-07
 
 ---
 
-1.  1월 20일 F&U 사용자 교육자료 작성
-2.  openstack 설치
-3.  유신 multi-write관련 disk 설정
-4.  유신 shared vmdk 안되서 vm 복제 후 디스크 연결 작업으로 진행
+1. 1월 20일 F&U 사용자 교육자료 작성
+2. openstack 설치
+3. 유신 multi-write관련 disk 설정
+4. 유신 shared vmdk 안되서 vm 복제 후 디스크 연결 작업으로 진행
 
 - 원인 3rd 백업 솔루션과 연계된 윈도우 VM 복제시 지속적인 IO 발생이 되면서 문제가 발생됨
 - VMware Snapshot Provider 속성 -> 사용안함
@@ -32,16 +32,16 @@
 
 ---
 
-1.  유신 shared vmdk 안되서 vm 복제 후 디스크 연결 작업으로 진행
-2.  WSFC 데이터 동기화 가능
-3.  서보광 상무님 6.7 버전 8.0.3 업그레이드 작업 진행
-4.  FY25 문서 작성
+1. 유신 shared vmdk 안되서 vm 복제 후 디스크 연결 작업으로 진행
+2. WSFC 데이터 동기화 가능
+3. 서보광 상무님 6.7 버전 8.0.3 업그레이드 작업 진행
+4. FY25 문서 작성
 
 ## 2025-01-09
 
 ---
 
-1.  openstack 설치 All-in-one
+1. openstack 설치 All-in-one
 
 ## 2025-01-09
 
@@ -54,80 +54,80 @@
 ---
 
 1. 고려대학교 HPC 구축
-1. 네트워크 스위치 구성
+2. 네트워크 스위치 구성
 
 ## 2025-01-13
 
 ---
 
 1. 고려대학교 HPC 구축
-1. LACP및 VLAN 설정
+2. LACP및 VLAN 설정
 
 ## 2025-01-14
 
 ---
 
 1. 한화시스템 HPC/AI 제안서 작성
-1. FnU NSX, Tanzu 구성 아키텍처 문서 작성
+2. FnU NSX, Tanzu 구성 아키텍처 문서 작성
 
 ## 2025-01-15
 
 ---
 
 1. FnU NSX, Tanzu 구성 아키텍처 문서 작성
-1. 한화시스템 HPC/AI 제안서 작성
+2. 한화시스템 HPC/AI 제안서 작성
 
 ## 2025-01-16
 
 ---
 
 1. FnU NSX, Tanzu 구성 아키텍처 문서 작성
-1. 한화시스템 HPC/AI 제안서 작성
+2. 한화시스템 HPC/AI 제안서 작성
 
 ## 2025-01-17
 
 ---
 
 1. 한화시스템 HPC/AI 제안서 작성
-1. FnU vSphere 8 운영자 매뉴얼 교육
+2. FnU vSphere 8 운영자 매뉴얼 교육
 
 ## 2025-01-20
 
 ---
 
 1. 유신 메모리 사용률 관련 점검 지원
-1. 유신 vCenter 자원 사용률 API 호출 정보 찾아서 전달(01월24일 까지)
-1. FnU vSphere 8 운영자 매뉴얼 교육
-1. FnU 신용정보 Aria Log insight < 로그인 + 멈춤 확인 필요(01월 24일 까지)
+2. 유신 vCenter 자원 사용률 API 호출 정보 찾아서 전달(01월24일 까지)
+3. FnU vSphere 8 운영자 매뉴얼 교육
+4. FnU 신용정보 Aria Log insight < 로그인 + 멈춤 확인 필요(01월 24일 까지)
 
 ## 2025-01-21
 
 ---
 
 1. 고려대학교 HPC 사업 참여
-1. MAAS 구성
+2. MAAS 구성
 
 ## 2025-01-22
 
 ---
 
 1. 고려대학교 HPC 사업 참여
-1. Harbor 구성
+2. Harbor 구성
 
 ## 2025-01-23
 
 ---
 
 1. 유신 vCenter 자원 사용률 API 호출 정보 찾아서 전달(01월24일 까지)
-1. https://blog.zabbix.com/monitoring-vmware-vsphere-with-zabbix/29193/
-1. F&U신용정보 Aria for Logs 접속 오류 확인 - 서비스 재시작, 로그 분석중
+2. https://blog.zabbix.com/monitoring-vmware-vsphere-with-zabbix/29193/
+3. F&U신용정보 Aria for Logs 접속 오류 확인 - 서비스 재시작, 로그 분석중
 
 ## 2025-01-24
 
 ---
 
 1. 유신 vCenter 자원 사용률 API 호출 정보 찾아서 전달(01월24일 까지)
-1. 부서회식
+2. 부서회식
 
 ## 2025-02-03
 
@@ -142,7 +142,7 @@
 ---
 
 1. 몬디리안 AI 사전미팅
-1. 네트워크 스위치 서버 라벨링 작업
+2. 네트워크 스위치 서버 라벨링 작업
 
 ## 2025-02-05
 
@@ -151,7 +151,7 @@
 F&U신용정보 VPN 패스워드 변경(BayNex9977!)
 
 1. F&U신용정보 Aria for Logs 접속 오류 확인 - 서비스 재시작, 로그 분석중
-1. HPE VME Cloud image 관련 설정
+2. HPE VME Cloud image 관련 설정
 
 ## 2025-02-06
 
@@ -170,7 +170,7 @@ F&U신용정보 VPN 패스워드 변경(BayNex9977!)
 ---
 
 1. HPE VME, Proxmox 비교
-1. HPE VME 대시보드, UI, 메뉴 설명
+2. HPE VME 대시보드, UI, 메뉴 설명
 
 ## 2025-02-11
 
@@ -183,28 +183,28 @@ F&U신용정보 VPN 패스워드 변경(BayNex9977!)
 ---
 
 1. HPE VME 대시보드, UI, 메뉴 설명
-1. 희창유업 제안서 작업 관련 내용 리뷰 및 회의 진행
+2. 희창유업 제안서 작업 관련 내용 리뷰 및 회의 진행
 
 ## 2025-02-13
 
 ---
 
 1. Proxmox Cloudinit 설치 정리
-1. 희창유업 제안서 작업 관련 내용 리뷰 및 회의 진행
+2. 희창유업 제안서 작업 관련 내용 리뷰 및 회의 진행
 
 ## 2025-02-14
 
 ---
 
 1. 희창유업 제안서 작업 관련 내용 리뷰 및 회의 진행
-1. HPE VME vMotion, Agenttools 세팅 설정 알아내기(2월 20일 )
+2. HPE VME vMotion, Agenttools 세팅 설정 알아내기(2월 20일 )
 
 ## 2025-02-17
 
 ---
 
 1. 희창유업 노후서버 교체사업 제안작업 진행
-1. 희창유업 1안, 2안 구별 제안서 작성
+2. 희창유업 1안, 2안 구별 제안서 작성
 
 ## 2025-02-18
 
@@ -223,7 +223,7 @@ F&U신용정보 VPN 패스워드 변경(BayNex9977!)
 ---
 
 1. 희창유업 1안, 2안 구별 제안서 작성
-1. OpenStack All-in-one node install (Kollaansible)
+2. OpenStack All-in-one node install (Kollaansible)
 
 ## 2025-02-21
 
@@ -242,7 +242,7 @@ F&U신용정보 VPN 패스워드 변경(BayNex9977!)
 ---
 
 1. Proxmox Backup Server 구축을 위한 자료 검토
-1. BNI 사업 관련 Simplivity 380 Gen10 Plus 구성 방안 검토
+2. BNI 사업 관련 Simplivity 380 Gen10 Plus 구성 방안 검토
 
 ## 2025-02-26
 
@@ -345,18 +345,54 @@ F&U신용정보 VPN 패스워드 변경(BayNex9977!)
 ---
 
 1. 서울대학교 Tanzu PoC 제안 관련 CEC센터 설치
-2.
 
 ## 2025-03-21
 
 ---
 
 1. 서울대학교 PoC 진행
-2.
 
 ## 2025-03-24
 
 ---
 
 1. 서울대학교 PoC 진행
+
+## 2025-03-25
+
+---
+
+1. 서울대학교 PoC 진행
+
+## 2025-03-26
+
+---
+
+1. 서울대학교 PoC 진행
+
+## 2025-03-27
+
+---
+
+1. 서울대학교 PoC 진행
+
+## 2025-03-28
+
+---
+
+1. 서울대학교 PoC 진행
+
+## 2025-03-31
+
+---
+
+1. 서울대, BNI 관련 회의 진행
+2. 유신 DNS 설정 및 Zabbix 연계
+3. 서울대 접속 자료 전달
+
+## 2025-03-31
+
+---
+
+1. AI:DRIVE 사이징 + 구성도 전달 - > 3 Node 구성
 2.

@@ -7,12 +7,12 @@
 # https://github.com/helm/helm/releases
 
 NAME STATUS ROLES AGE VERSION INTERNAL-IP EXTERNAL-IP OS-IMAGE KERNEL-VERSION CONTAINER-RUNTIME
-master1 Ready control-plane,etcd,master 26m v1.28.10+rke2r1 192.168.0.130 <none> Ubuntu 22.04.4 LTS 5.15.0-105-generic containerd://1.7.11-k3s2
-worker1 Ready <none> 25m v1.28.10+rke2r1 192.168.0.131 <none> Ubuntu 22.04.4 LTS 5.15.0-105-generic containerd://1.7.11-k3s2
-worker2 Ready <none> 6m48s v1.28.10+rke2r1 192.168.0.132 <none> Ubuntu 22.04.4 LTS 5.15.0-105-generic containerd://1.7.11-k3s2
+master1 Ready control-plane,etcd,master 26m v1.28.10+rke2r1 192.168.0.130 `<none>` Ubuntu 22.04.4 LTS 5.15.0-105-generic containerd://1.7.11-k3s2
+worker1 Ready `<none>` 25m v1.28.10+rke2r1 192.168.0.131 `<none>` Ubuntu 22.04.4 LTS 5.15.0-105-generic containerd://1.7.11-k3s2
+worker2 Ready `<none>` 6m48s v1.28.10+rke2r1 192.168.0.132 `<none>` Ubuntu 22.04.4 LTS 5.15.0-105-generic containerd://1.7.11-k3s2
 
 worker1 - GPU X
-worker2 - GPU O
+worker2 - GPU X
 
 # ssh root@192.168.0.9
 
@@ -166,11 +166,11 @@ echo 'export KUBE_EDITOR=nano' >>~/.bashrc
 
 [Install Helm]
 export FILE_NAME=helm-v3.15.1-linux-amd64.tar.gz
-wget https://get.helm.sh/$FILE_NAME && \
-tar -zxvf $FILE_NAME && \
-sudo mv linux-amd64/helm /usr/local/bin/helm && \
-rm $FILE_NAME && \
-rm -rf linux-amd64/ && \
+wget https://get.helm.sh/$FILE_NAME &&
+tar -zxvf $FILE_NAME &&
+sudo mv linux-amd64/helm /usr/local/bin/helm &&
+rm $FILE_NAME &&
+rm -rf linux-amd64/ &&
 helm version
 
 ---
@@ -246,7 +246,7 @@ kubectl get ingressclasses.networking.k8s.io -A
 
 # NAME CONTROLLER PARAMETERS AGE
 
-# nginx k8s.io/ingress-nginx <none> 27m
+# nginx k8s.io/ingress-nginx `<none>` 27m
 
 ---
 
@@ -261,13 +261,13 @@ helm search repo jetstack
 
 # --version v1.14.5
 
-helm upgrade cert-manager jetstack/cert-manager \
- --install \
- --namespace cert-manager \
- --create-namespace \
- --version v1.14.5 \
- --set 'extraArgs={--dns01-recursive-nameservers-only,--dns01-recursive-nameservers=8.8.8.8:53\,1.1.1.1:53}' \
- --set installCRDs=true
+helm upgrade cert-manager jetstack/cert-manager
+--install
+--namespace cert-manager
+--create-namespace
+--version v1.14.5
+--set 'extraArgs={--dns01-recursive-nameservers-only,--dns01-recursive-nameservers=8.8.8.8:53\,1.1.1.1:53}'
+--set installCRDs=true
 
 ## watch kubectl get all -n cert-manager
 
@@ -287,25 +287,25 @@ echo "192.168.0.130 rancher.example.com" | sudo tee -a /etc/hosts
 helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
 helm repo update rancher-stable
 helm search repo rancher-stable
-helm pull rancher-stable/rancher \
- --version 2.10.3
+helm pull rancher-stable/rancher
+--version 2.10.3
 
 # Error: chart requires kubeVersion: < 1.29.0-0 which is incompatible with Kubernetes v1.30.1+rke2r1
 
-helm upgrade rancher rancher-stable/rancher \
- --install \
- --namespace cattle-system \
- --create-namespace \
- --version 2.10.3 \
- --set hostname=rancher.sample.com \
- --set replicas=1 \
- --set bootstrapPassword=admin01
+helm upgrade rancher rancher-stable/rancher
+--install
+--namespace cattle-system
+--create-namespace
+--version 2.10.3
+--set hostname=rancher.sample.com
+--set replicas=1
+--set bootstrapPassword=admin01
 
 watch kubectl get all -n cattle-system
 
 # url : https://rancher.sample.com/dashboard/?setup=admin01
 
-# kubectl get secret --namespace cattle-system bootstrap-secret -o go-template='{{.data.bootstrapPassword|base64decode}}{{"\n"}}'
+# kubectl get secret --namespace cattle-system bootstrap-secret -o go-template='}}'
 
 # helm delete rancher -n cattle-system
 

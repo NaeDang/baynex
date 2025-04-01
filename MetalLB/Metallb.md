@@ -50,6 +50,30 @@ spec:
     - my-ip-pool
 ````
 
+````bash IP가 하나일 때
+📌 5. MetalLB 설정 (Layer 2 모드)
+🔖 ConfigMap 작성 (metallb-config.yaml)
+```yaml
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: my-ip-pool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 192.168.10.251/32 # IP가 하나일 때
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+name: my-l2-advert
+namespace: metallb-system
+spec:
+  # 사용할 ipAddressPools을 추가해주는 데 위에 정의한 ipAddressPools을 사용하도록 한다.
+  ipAddressPools:
+    - my-ip-pool
+````
+
 ````
 🚀 ConfigMap 적용
 ```bash
