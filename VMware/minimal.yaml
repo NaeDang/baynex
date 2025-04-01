@@ -1,0 +1,28 @@
+# guestinfo.userdata.encoding base64
+# guestinfo.userdata I2Nsb3VkLWNvbmZpZw0KdXNlcnM6DQogIC0gZGVmYXVsdA0KICAtIG5hbWU6IHVidW50dQ0KICAgIHNzaC1hdXRob3JpemVkLWtleXM6DQogICAgICAtICJzc2gtZWQyNTUxOSBBQUFBQzNOemFDMWxaREkxTlRFNUFBQUFJRTFzbTY2amN1ellqL1Q0eDFzRTY3WFZSYkh3QXU3bk5sY1pvT1oyUzYvbSBTaGluQERFU0tUT1AtRTI4MUlVUSINCiAgICBzdWRvOiBBTEw9KEFMTCkgTk9QQVNTV0Q6QUxMDQogICAgZ3JvdXBzOiBzdWRvDQogICAgc2hlbGw6IC9iaW4vYmFzaA0K
+# guestinfo.userdata 
+c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUUxc202NmpjdXpZai9UNHgxc0U2N1hWUmJId0F1N25ObGNab09aMlM2L20gU2hpbkBERVNLVE9QLUUyODFJVVEK
+c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUUxc202NmpjdXpZai9UNHgxc0U2N1hWUmJId0F1N25ObGNab09aMlM2L20gU2hpbkBERVNLVE9QLUUyODFJVVEK
+
+
+#cloud-config
+users:
+  - name: admin
+    plain_text_passwd: admin
+    groups: sudo
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    lock_passwd: false
+
+
+
+#cloud-config
+users:
+  - default
+  - name: ubuntu
+    ssh-authorized-keys:
+      - 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE1sm66jcuzYj/T4x1sE67XVRbHwAu7nNlcZoOZ2S6/m Shin@DESKTOP-E281IUQ'
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: sudo
+    shell: /bin/bash
+
