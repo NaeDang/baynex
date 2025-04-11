@@ -1,7 +1,0 @@
-overrides:
-  ceph:
-    conf:
-      osd:
-        bluestore allocator: hybrid
-        bluefs allocator: hybrid
-

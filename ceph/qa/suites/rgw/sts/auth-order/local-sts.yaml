@@ -1,5 +1,0 @@
-overrides:
-  ceph:
-    conf:
-      client:
-        rgw s3 auth order: local, sts, external

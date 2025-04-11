@@ -1,4 +1,0 @@
-overrides:
-  ceph:
-    conf:
-      osd:

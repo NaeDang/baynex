@@ -1,8 +1,0 @@
-overrides:
-  ceph:
-    conf:
-      osd:
-        crush location: 'root=default host=host-$id'
-      client:
-        rados replica read policy: balance
-

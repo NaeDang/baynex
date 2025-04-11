@@ -482,10 +482,19 @@ helm upgrade ceph-csi-rbd ceph-csi/ceph-csi-rbd \
     --set csiConfig[0].monitors[1]="192.168.0.13:6789" \
     --set csiConfig[0].monitors[2]="192.168.0.14:6789" \
     --set nodeplugin.httpMetrics.enabled=false \
+    --set-string nodeplugin.containerSecurityContext.allowPrivilegeEscalation="false" \
+        --set serviceAccounts.nodeplugin.name=ceph-csi-nodeplugin \
     --set-string nodeplugin.podSecurityContext.seccompProfile.type="RuntimeDefault" \
+    --set nodeplugin.containerSecurityContext.runAsNonRoot=true \
+    --set-string nodeplugin.containerSecurityContext.allowPrivilegeEscalation="false" \
+    --set nodeplugin.containerSecurityContext.capabilities.drop[0]="ALL" \
     --set provisioner.replicaCount=1 \
     --set provisioner.httpMetrics.enabled=false \
+    --set serviceAccounts.provisioner.name=ceph-csi-provisioner \
     --set-string provisioner.podSecurityContext.seccompProfile.type="RuntimeDefault" \
+    --set provisioner.containerSecurityContext.runAsNonRoot=true \
+    --set-string provisioner.containerSecurityContext.allowPrivilegeEscalation="false" \
+    --set provisioner.containerSecurityContext.capabilities.drop[0]="ALL" \
     --set storageClass.create=true \
     --set storageClass.name="csi-rbd-sc" \
     --set storageClass.clusterID="c0a5c077-7fab-4586-9fda-577c6d70eb40" \
@@ -502,4 +511,44 @@ watch kubectl get all -n ceph-csi-rbd
 
 helm get values ceph-csi-rbd -n ceph-csi-rbd
 
+```
+
+```bash
+helm upgrade ceph-csi-rbd ceph-csi/ceph-csi-rbd \
+  --version 3.13.1 \
+  --install \
+  --namespace ceph-csi-rbd \
+  --create-namespace \
+  --set csiConfig[0].clusterID="c0a5c077-7fab-4586-9fda-577c6d70eb40" \
+  --set csiConfig[0].monitors[0]="192.168.0.12:6789" \
+  --set csiConfig[0].monitors[1]="192.168.0.13:6789" \
+  --set csiConfig[0].monitors[2]="192.168.0.14:6789" \
+  --set nodeplugin.httpMetrics.enabled=false \
+  --set serviceAccounts.nodeplugin.name=ceph-csi-nodeplugin \
+  --set serviceAccounts.provisioner.name=ceph-csi-provisioner \
+  --set nodeplugin.containerSecurityContext.allowPrivilegeEscalation=false \
+  --set nodeplugin.containerSecurityContext.capabilities.drop[0]="ALL" \
+  --set nodeplugin.containerSecurityContext.runAsNonRoot=true \
+  --set nodeplugin.containerSecurityContext.runAsUser=1001 \
+  --set-string nodeplugin.podSecurityContext.seccompProfile.type="RuntimeDefault" \
+  --set nodeplugin.podSecurityContext.runAsNonRoot=true \
+  --set nodeplugin.podSecurityContext.runAsUser=1001 \
+  --set provisioner.containerSecurityContext.allowPrivilegeEscalation=false \
+  --set provisioner.containerSecurityContext.capabilities.drop[0]="ALL" \
+  --set provisioner.containerSecurityContext.runAsNonRoot=true \
+  --set provisioner.containerSecurityContext.runAsUser=1001 \
+  --set-string provisioner.podSecurityContext.seccompProfile.type="RuntimeDefault" \
+  --set provisioner.podSecurityContext.runAsNonRoot=true \
+  --set provisioner.podSecurityContext.runAsUser=1001 \
+  --set provisioner.replicaCount=1 \
+  --set provisioner.httpMetrics.enabled=false \
+  --set storageClass.create=true \
+  --set storageClass.name="csi-rbd-sc" \
+  --set storageClass.clusterID="c0a5c077-7fab-4586-9fda-577c6d70eb40" \
+  --set storageClass.pool="kubernetes" \
+  --set storageClass.reclaimPolicy="Delete" \
+  --set secret.create=true \
+  --set secret.name="csi-rbd-secret" \
+  --set secret.userID="kubernetes" \
+  --set secret.userKey="AQAeVvdnN9iDHxAAIYLNgjEn4vw7dPLF6rRCPQ=="
 ```
