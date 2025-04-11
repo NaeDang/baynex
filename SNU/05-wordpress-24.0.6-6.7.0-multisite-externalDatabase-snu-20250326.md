@@ -166,6 +166,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: pv-editor
+  namespace: wordpress
 spec:
   containers:
   - command:
@@ -182,7 +183,12 @@ spec:
   - name: vol-0
     persistentVolumeClaim:
       claimName: wordpress
+  securityContext:
+    seccompProfile:
+      type: RuntimeDefault
 EOF
+
+
 ```
 
 ```bash
@@ -216,7 +222,7 @@ Bitnami Helm Charts. Contribute to bitnami/charts development by creating an acc
       /opt/bitnami/php/etc from empty-dir (rw,path="php-conf-dir")
       /opt/bitnami/php/tmp from empty-dir (rw,path="php-tmp-dir")
       /opt/bitnami/php/var from empty-dir (rw,path="php-var-dir")
-      /opt/bitnami/wordpress from empty-dir (rw,path="app-base-dir")
+      /opt/binami/wordpress from empty-dir (rw,path="app-base-dir")
       /tmp from empty-dir (rw,path="tmp-dir")
 
 ```
