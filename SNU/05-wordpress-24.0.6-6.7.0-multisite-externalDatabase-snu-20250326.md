@@ -166,6 +166,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: pv-editor
+  namespace: wordpress
 spec:
   containers:
   - command:
@@ -182,7 +183,12 @@ spec:
   - name: vol-0
     persistentVolumeClaim:
       claimName: wordpress
+  securityContext:
+    seccompProfile:
+      type: RuntimeDefault
 EOF
+
+
 ```
 
 ```bash
