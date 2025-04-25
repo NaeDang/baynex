@@ -104,13 +104,13 @@ FLUSH PRIVILEGES;
 
 ## WordPress
 
-```bash
+`````bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update bitnami
 helm search repo bitnami
 helm pull bitnami/wordpress \
   --version 24.0.6
-```
+ku ```
 
 ````bash
 kubectl -n wordpress create secret tls star.snu.ac.kr-tls --key ./STAR.snu.ac.kr.key --cert ./STAR.snu.ac.kr.crt
@@ -137,8 +137,7 @@ helm upgrade wordpress bitnami/wordpress \
   --set externalDatabase.password="7A0Xl\)PKy1T\%G4Bh" \
   --set externalDatabase.database=wordpress \
   --set externalDatabase.port=3306
-```
-
+`````
 
 ```bash
 watch kubectl get all -n wordpress
@@ -230,4 +229,7 @@ Bitnami Helm Charts. Contribute to bitnami/charts development by creating an acc
 path: /
 
 #
-````
+
+```
+
+```
